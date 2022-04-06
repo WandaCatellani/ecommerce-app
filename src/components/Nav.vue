@@ -1,82 +1,39 @@
 <template>
-  <v-toolbar app color="teal" dark max-height="65">
-    <v-toolbar-title>
-      <router-link to="/" tag="span" style="cursor: pointer">
-        <img :src="logo" :alt="'Logo'" class="img-logo" />
-      </router-link>
-    </v-toolbar-title>
+  <b-navbar toggleable="md" type="dark" variant="info">
+    <b-container>
+      <b-navbar-brand href="#">Logo</b-navbar-brand>
 
-    <v-spacer></v-spacer>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <v-toolbar-items class="hidden-xs-only">
-      <v-btn
-        color="transparent"
-        v-for="item in menuItems"
-        :key="item.title"
-        :to="item.path"
-      >
-        <v-icon left light>{{ item.icon }}</v-icon>
-        {{ item.title }}
-      </v-btn>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item :to="{ name: 'home' }" exact>Home</b-nav-item>
+          <b-nav-item :to="{ name: 'cart' }">Cart</b-nav-item>
+        </b-navbar-nav>
 
-      <v-btn
-        v-if="name === undefined"
-        color="transparent"
-        :key="Login"
-        :to="'/signin'"
-      >
-        <v-icon left light> mdi-account-lock-open</v-icon>
-        Login
-      </v-btn>
+        <!-- Right aligned nav items -->
+        <b-navbar-nav class="ml-auto">
+          <b-nav-form>
+            <b-form-input
+              size="sm"
+              class="mr-sm-2"
+              placeholder="Search"
+            ></b-form-input>
+            <b-button size="sm" class="my-2 my-sm-0" type="submit"
+              >Search</b-button
+            >
+          </b-nav-form>
 
-      <v-btn
-        v-else-if="name !== undefined"
-        color="transparent"
-        @click="logout()"
-      >
-        <v-icon left light> mdi-account-lock-open</v-icon>
-        Log out
-      </v-btn>
-    </v-toolbar-items>
-  </v-toolbar>
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template #button-content> <em>User</em> </template>
+
+            <b-dropdown-item href="#">Profile</b-dropdown-item>
+
+            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-container>
+  </b-navbar>
 </template>
-
-<script>
-import logo from "../assets/logo.png";
-
-export default {
-  data() {
-    return {
-      logo: logo,
-      sidebar: false,
-      menuItems: [
-        { title: "Home", path: "/", icon: "mdi-home" },
-        { title: "Cart", path: "/cart", icon: "mdi-cart" },
-      ],
-      name: undefined,
-    };
-  },
-
-  computed: {
-    getName() {
-      return this.$store.state.user.name;
-    },
-  },
-  watch: {
-    getName(newValue) {
-      this.name = newValue;
-    },
-  },
-  methods: {
-    logout() {
-      this.$store.dispatch("cleanUser", {});
-    },
-  },
-};
-</script>
-
-<style scoped>
-.img-logo {
-  height: 5vh;
-}
-</style>
