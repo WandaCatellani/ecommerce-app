@@ -1,5 +1,6 @@
 <template>
-  <v-footer dark padless>
+  <h1>footer</h1>
+  <!-- <v-footer dark padless>
     <v-card class="flex" flat tile>
       <v-card-title class="teal">
         <router-link to="/" tag="span" style="cursor: pointer">
@@ -17,16 +18,16 @@
         {{ new Date().getFullYear() }} — <strong>Wanda Catellani</strong>
       </v-card-text>
     </v-card>
-  </v-footer>
+  </v-footer> -->
 </template>
 
 <script>
-import logo from "../assets/logo.png";
+import logo from '../assets/logo.png';
 export default {
-  name: "FooterComp",
+  name: 'Footer',
   data: () => ({
     logo: logo,
-    icons: ["mdi-linkedin", "mdi-instagram"],
+    icons: ['mdi-linkedin', 'mdi-instagram'],
   }),
 };
 </script>

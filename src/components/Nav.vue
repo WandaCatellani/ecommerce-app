@@ -1,5 +1,6 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="info">
+  <h1>Nav</h1>
+  <!-- <b-navbar toggleable="md" type="dark" variant="info">
     <b-container>
       <b-navbar-brand href="#">Logo</b-navbar-brand>
 
@@ -11,7 +12,6 @@
           <b-nav-item :to="{ name: 'cart' }">Cart</b-nav-item>
         </b-navbar-nav>
 
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form>
             <b-form-input
@@ -25,7 +25,6 @@
           </b-nav-form>
 
           <b-nav-item-dropdown right>
-            <!-- Using 'button-content' slot -->
             <template #button-content> <em>User</em> </template>
 
             <b-dropdown-item href="#">Profile</b-dropdown-item>
@@ -35,5 +34,5 @@
         </b-navbar-nav>
       </b-collapse>
     </b-container>
-  </b-navbar>
+  </b-navbar> -->
 </template>
