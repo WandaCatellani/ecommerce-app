@@ -32,7 +32,6 @@ export default createStore({
         const response = await fetch(
           'https://62435d9539aae3e3b7422c44.mockapi.io/products'
         );
-
         const data = await response.json();
 
         commit('setProducts', data);
@@ -40,13 +39,6 @@ export default createStore({
       } catch (error) {
         console.log(error);
       }
-    },
-
-    filterByStatus({ commit, state }, status) {
-      const results = state.products.filter((product) => {
-        return product.status.includes(status);
-      });
-      commit('setProductsFilter', results);
     },
 
     filterByName({ commit, state }, name) {

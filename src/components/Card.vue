@@ -6,16 +6,6 @@
       <h3>{{ product.name }}</h3>
 
       <div class="status">
-        <span
-          :class="
-            product.status == 'Alive'
-              ? 'alive'
-              : product.status == 'Dead'
-              ? 'dead'
-              : 'default'
-          "
-        ></span>
-
         <span>{{ product.product }} - {{ product.deparment }}</span>
       </div>
 
@@ -91,27 +81,6 @@ export default {
       display: flex;
       align-items: center;
       margin-bottom: 0.5rem;
-
-      span {
-        color: var(--text-gray);
-        &:first-child {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          margin-right: 0.5rem;
-        }
-      }
-      .alive {
-        background-color: green;
-      }
-
-      .dead {
-        background-color: red;
-      }
-
-      .default {
-        background-color: white;
-      }
     }
 
     .origen {
